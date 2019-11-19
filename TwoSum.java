@@ -16,34 +16,9 @@ if storeDifference's last stored value is equal to the current value of differen
 return result as
 result[0] -the key of difference stored in storeDifference put it 
 result[1] -the index of the current value of i in which the condition was met
-
+else keep storing the current iteration value in storeDifference until condition is met
 */
 
-class TwoSum {
-    public static void main(String[] args) {
-        int[] testInput = {2, 7, 11, 15};
-        int testTarget = 9;
-        System.out.println(Arrays.toString(twoSum(testInput, testTarget)));
-    }
-    public static int[] twoSum(int[] nums, int target) {
-        int[] result = new int[2];
-        HashMap<Integer, Integer> storeDifference = new HashMap<>();
-        for (int i = 0; i < nums.length; i++) {
-            int difference = target - nums[i];
-            storeDifference.put(nums[i], i);
-            if(storeDifference.containsKey(difference)) {
-                result[0] = storeDifference.get(difference);
-                result[1] = i;
-                return result;
-            }
-        }
-        throw new IllegalArgumentException("No match");
-    }
-}
-
-
-
-/*leetcode version
 class Solution {
     public int[] twoSum(int[] nums, int target) {
         int[] result = new int[2];
@@ -60,4 +35,3 @@ class Solution {
         throw new IllegalArgumentException("No match");
     }
 }
-*/
