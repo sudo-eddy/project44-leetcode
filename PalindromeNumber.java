@@ -19,3 +19,29 @@ Follow up:
 
 Coud you solve it without converting the integer to a string?
 */
+class Solution {
+    public boolean isPalindrome(int inputNumber) {
+        boolean trailingZero = false;
+        if (inputNumber % 10 == 0)
+            trailingZero = true;
+        if (inputNumber < 0 || (inputNumber != 0 && trailingZero))
+            return false;
+        
+        int halfReversed = 0;
+        while (inputNumber > halfReversed) {
+            halfReversed = halfReversed * 10 + inputNumber % 10;
+            inputNumber /= 10;
+        }
+        return halfReversed == inputNumber || halfReversed / 10 == inputNumber;
+    }
+}
+
+/*
+Thought process
+
+Avoid confusion by storing trailingZero checker in boolean
+return false if number is negative, if number is not zero and has trailing zero
+when number is less than halfReversed the loop breaks
+   compare halfreversed to number
+   when number is odd lenght we compare halfReversed / 10 to number (we are comparing to the value of number at the end of loop not the initial value)
+*/                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
