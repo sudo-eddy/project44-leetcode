@@ -17,3 +17,20 @@ What should we return when needle is an empty string? This is a great question t
 
 For the purpose of this problem, we will return 0 when needle is an empty string. This is consistent to C's strstr() and Java's indexOf().
 */
+class Solution {
+    class Solution {
+        public int strStr(String haystack, String needle) {
+            if (haystack == null || needle == null)
+                return -1;
+            if (needle.equals(""))
+                return 0;
+            return haystack.indexOf(needle);
+    
+        }
+    }
+/* 
+Thoughts
+if haystack or needle are null return -1
+if needle is an empty string return 0
+return indexOf(needdle) in haystack
+*/

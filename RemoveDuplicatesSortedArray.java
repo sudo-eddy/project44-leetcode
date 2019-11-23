@@ -34,3 +34,30 @@ for (int i = 0; i < len; i++) {
     print(nums[i]);
 }
 */
+class Solution {
+    public int removeDuplicates(int[] input) {
+        if (input.length == 0)
+            return 0;
+        int newSize = 1;
+        for (int i = 1; i < input.length; ++i) {
+            if (input[i - 1] != input[i]) {
+                input[newSize] = input[i];
+                newSize++;
+            }
+        }
+        return newSize;
+    }
+}
+
+/* 
+Thought process 
+
+return zero if inputArray is empty
+initialize newSize variable to 1 
+initialize i as 1 in for loop and for each iteration we do the following:
+    if previous value of input[i] is not equal to current value of input[i]
+    element at input[newSize] = element at input[i] <--- this is where we assign values in place
+    increase newSize
+    else do nothing and continue looping 
+return final value of newSize 
+*/
