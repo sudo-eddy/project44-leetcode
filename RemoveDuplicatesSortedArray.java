@@ -39,7 +39,7 @@ class Solution {
         if (input.length == 0)
             return 0;
         int newSize = 1;
-        for (int i = 1; i < input.length; ++i) {
+        for (int i = 1; i < input.length; i++) {
             if (input[i - 1] != input[i]) {
                 input[newSize] = input[i];
                 newSize++;
@@ -48,16 +48,15 @@ class Solution {
         return newSize;
     }
 }
-
 /* 
 Thought process 
 
-return zero if inputArray is empty
+return zero if input is empty
 initialize newSize variable to 1 
 initialize i as 1 in for loop and for each iteration we do the following:
     if previous value of input[i] is not equal to current value of input[i]
     element at input[newSize] = element at input[i] <--- this is where we assign values in place
     increase newSize
-    else do nothing and continue looping 
+    else do nothing and continue looping until loop ends 
 return final value of newSize 
 */
