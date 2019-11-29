@@ -30,21 +30,23 @@ Output: true
 */
 class Solution {
     public boolean isValid(String userInput) {
+        char openParenthesis = '(', openCurly = '{', openBracket = '[';
+        char closeParenthesis = ')', closeCurly = '}', closeBracket = ']';
         if (userInput == null || userInput.length() == 0) 
             return true;
         Stack<Character> parenthesisStack = new Stack<>(); 
         for (char bracketType : userInput.toCharArray()) {  
-            if (bracketType == '(' || bracketType == '{' || bracketType == '[') { 
+            if (bracketType == openParenthesis || bracketType == openCurly || bracketType == openBracket) { 
                 parenthesisStack.push(bracketType); 
-            } else if (bracketType == ')' || bracketType == '}' || bracketType == ']') { 
+            } else if (bracketType == closeParenthesis || bracketType == closeCurly || bracketType == closeBracket) { 
                 if (parenthesisStack.isEmpty()) {
                     return false;
                 }
-                if (bracketType == ')' && parenthesisStack.peek() == '(') { 
+                if (bracketType == closeParenthesis && parenthesisStack.peek() == openParenthesis) { 
                     parenthesisStack.pop();
-                } else if (bracketType == '}' && parenthesisStack.peek() == '{') {
+                } else if (bracketType == closeCurly && parenthesisStack.peek() == openCurly) {
                     parenthesisStack.pop();
-                } else if (bracketType == ']' && parenthesisStack.peek() == '[') {
+                } else if (bracketType == closeBracket && parenthesisStack.peek() == openBracket) {
                     parenthesisStack.pop();
                 } else {
                     return false;
