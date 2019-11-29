@@ -20,3 +20,31 @@ Example 4:
 Input: [1,3,5,6], 0
 Output: 0
 */
+class Solution {
+    public int searchInsert(int[] nums, int target) {
+        int left = 0, right = nums.length - 1;
+        return binarySearch(nums, left, right, target);
+    }
+    private int binarySearch(int[] nums, int left, int right, int target) {
+        while (left <= right) {
+            int mid = (right + left) >> 1;
+            if (target <= nums[mid]) {
+                right = mid - 1;
+            } else 
+                left = mid + 1;
+        }
+        return left;
+    }
+}
+
+
+/* 
+Thought process
+
+I learned about using the shift operator
+use binary search to find the middle element and compare to our target for each iteration
+until loop breaks
+*/
+    
+
+

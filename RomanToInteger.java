@@ -41,3 +41,45 @@ Input: "MCMXCIV"
 Output: 1994
 Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
 */
+
+class Solution {
+    public int romanToInt(String input) {
+    HashMap<Character, Integer> romanMap = new HashMap<>();
+        romanMap.put('I', 1);
+        romanMap.put('V', 5);
+        romanMap.put('X', 10);
+        romanMap.put('L', 50);
+        romanMap.put('C', 100);
+        romanMap.put('D', 500);
+        romanMap.put('M', 1000);
+    
+        char[] romanChars = input.toCharArray();
+
+        int total = 0;
+        int specialRomanTracker = 0;
+
+        for (char romanChar : romanChars) {
+            int romanValue = romanMap.get(romanChar);
+
+            if (specialRomanTracker < romanValue) {
+                total -= specialRomanTracker;
+                romanValue -= specialRomanTracker;
+            }
+
+            total += romanValue;
+            specialRomanTracker = romanValue;
+
+        }
+        romanMap.clear();
+        return total;
+    }
+}
+
+/*
+Thought process
+
+put the roman characters and their corresponding values in a hashmap
+declare two parallel sum variables one to keep track of special case roman numerals
+and one to keep track of the actual total
+traverse through array and compare the values
+*/
