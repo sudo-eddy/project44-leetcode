@@ -1,14 +1,29 @@
-/* Given a sorted linked list, delete all duplicates such that each element appear only once.
+# Instructions
 
-Example 1:
+Given a sorted linked list, delete all duplicates such that each element appear only once.
 
+> Example 1:
+```
 Input: 1->1->2
 Output: 1->2
-Example 2:
-
+```
+> Example 2:
+```
 Input: 1->1->2->3->3
-Output: 1->2->3 */
-
+Output: 1->2->3
+```
+``` java
+ //Definition for singly-linked list.
+ public class ListNode {
+      int val;
+      ListNode next;
+      ListNode(int x) { val = x; }
+ }
+ ```
+ ***
+ 
+# Solution 
+``` java
 class Solution {
     public ListNode deleteDuplicates(ListNode head) {
         if (head == null || head.next == null)
@@ -26,8 +41,11 @@ class Solution {
         return head;
     }
 }
+```
 
-/* Thought process
 
-travese until next node is null
-check if nodes are equal and replace for the next.next node */
+***
+# Thought process
+
+* travese until next node is null
+* check if nodes are equal and replace for the next.next node
