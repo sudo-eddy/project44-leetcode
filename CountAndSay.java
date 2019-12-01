@@ -25,3 +25,43 @@ Example 2:
 Input: 4
 Output: "1211"
 */
+class Solution {
+    public String countAndSay(int n) {
+        //base cases
+        if (n == 1) 
+            return "1";
+        if (n ==2) 
+            return "11";
+            
+        String myString = "1";
+        for (int i = 1; i < n; i ++){
+            myString = processString(myString); //make recursive call
+        }
+        return myString;
+    }
+    
+    private String processString(String sequenceString){
+        StringBuilder sequenceBuilder = new StringBuilder();
+        char myChar = sequenceString.charAt(0); //get first element of passed string 
+        int count = 1;
+        for (int j = 1; j < sequenceString.length(); j++){
+            if (sequenceString.charAt(j) == myChar){
+                count ++;
+            }else{
+                sequenceBuilder.append(count);
+                sequenceBuilder.append(myChar);
+                myChar = sequenceString.charAt(j);
+                count = 1;   
+            }
+        }
+        sequenceBuilder.append(count);
+        sequenceBuilder.append(myChar);
+        return sequenceBuilder.toString();
+    }
+}
+
+/* Though process
+
+Recursivetly call processString on myString until loop breaks
+every time the string from the last recusrsion call is passed to processString
+append count and myChar accordingly after comparing myChar to the current char at iteration j */
