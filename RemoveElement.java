@@ -40,9 +40,10 @@ for (int i = 0; i < len; i++) {
 */
 class Solution {
     public int removeElement(int[] input, int val) {
-        if (input.length == 0) return 0;
+        if (input.length == 0)
+            return 0;
         int newSize = 0;
-        for (int i = 0, len = input.length; i < len; ++i) {
+        for (int i = 0, len = input.length; i < len; i++) {
             if (input[i] != val) {
                 input[newSize] = input[i];
                 newSize++;
@@ -52,15 +53,12 @@ class Solution {
     }
 }
 
-/* 
-Thought process 
-
-return zero if  is empty
-initialize newSize variable to 1 
-initialize i as 1 in for loop and for each iteration we do the following:
-    if value at input[i] is not equal to val
-    element at input[newSize] = element at input[i] <--- this is where we assign values in place
-    increase newSize
-    else do nothing and continue looping 
-return final value of newSize 
-*/
+/*
+ * Thought process
+ * 
+ * return zero if is empty initialize newSize variable to 1 initialize i as 1 in
+ * for loop and for each iteration we do the following: if value at input[i] is
+ * not equal to val element at input[newSize] = element at input[i] <--- this is
+ * where we assign values in place increase newSize else do nothing and continue
+ * looping return final value of newSize
+ */

@@ -83,3 +83,43 @@ declare two parallel sum variables one to keep track of special case roman numer
 and one to keep track of the actual total
 traverse through array and compare the values
 */
+
+class Solution {
+    public int romanToInt(String input) {
+    HashMap<Character, Integer> romanMap = new HashMap<>();
+        romanMap.put('I', 1);
+        romanMap.put('V', 5);
+        romanMap.put('X', 10);
+        romanMap.put('L', 50);
+        romanMap.put('C', 100);
+        romanMap.put('D', 500);
+        romanMap.put('M', 1000);
+    
+        char[] romanChars = input.toCharArray();
+
+        int total = 0;
+        int specialRomanTracker = 0;
+
+        for (char romanChar : romanChars) {
+            int romanValue = romanMap.get(romanChar);
+            System.out.println("This is romanValue --> " + romanValue + " ");
+            System.out.println("This is specialRomanTracker --> " + specialRomanTracker + " ");
+
+
+            if (specialRomanTracker < romanValue) {
+                total -= specialRomanTracker;
+                romanValue -= specialRomanTracker;
+                System.out.println("This is total - special case --> " + romanValue + " ");
+                System.out.println("This is romanValue --> " + romanValue + " ");
+            }
+
+            total += romanValue;
+            System.out.println("This is total --> " + total + " ");
+            specialRomanTracker = romanValue;
+            System.out.println("***iteration***");
+
+        }
+        romanMap.clear();
+        return total;
+    }
+}

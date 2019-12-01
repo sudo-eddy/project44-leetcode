@@ -44,7 +44,7 @@ traverse input array from right to left
     create a new array that holds one more element than input, change first element to 1 and return it
         * this is special case for 9
         * it covers inputs like 9,9,9 or 9
-    else if element at digit[i] is not 9 add 1 and return
+    else if element at input[i] is not 9 add 1 and return
     if it is 9, chance input[i] in place and return input 
 */
 

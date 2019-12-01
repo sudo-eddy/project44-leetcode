@@ -18,9 +18,11 @@ the decimal part is truncated, 2 is returned. */
 class Solution {
     public int mySqrt(int x) {
         long low = 1,high = x;
+        //base case
         if (x < 2) {
             return x;
-        } return binarySearch(low, high, x);
+        } 
+        return binarySearch(low, high, x);
     }
     private int binarySearch(long left, long right, int target) {    
         while(left < right){

@@ -23,6 +23,6 @@ Thought process
 
 check valid input
 trim the input and store it 
-find the start of the last word
+find the start of the last word by finding the last space and moving one to the right
 get the length of the lastword by finding the difference between the length of the string and the index of startLastWord
  */

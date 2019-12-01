@@ -64,8 +64,8 @@ empty string is valid
 create a new stack because we want to see last in first out (LIFO)
 convert user input into an array of chars and loop through it, for each char bracketType do the following:
 compare if bracketType is an opener bracketType if true, add to stack (only pushing openers to stack)
-else if it's a closer and if stack is empty, end program
+else if it's a closer and if stack is empty, end loop
 but if bracketType is a closer and last element is an opener we pop the opener and continue looping to find a match
-stack empty means they all matched since we're popping elements in the stack when there's a match
+when stack empty true means they all matched since we're popping elements in the stack when there's a match
 
 */
